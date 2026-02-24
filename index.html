@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="py-5 mb-4 text-center" style="background-color: #f1f3ec; border-radius: 0 0 50px 50px;">
+    <h1 class="display-4 fw-bold" style="color: #718355;">🍃 Matcha Café</h1>
+    <p class="lead text-muted">สัมผัสความละมุนของชาเขียวแท้ ในบรรยากาศมินิมอล</p>
+    <a href="/menu" class="btn btn-primary px-4 shadow-sm">ดูเมนูทั้งหมด</a>
+</div>
+
+<div class="container py-4">
+    <h2 class="text-center mb-5" style="font-family: 'Playfair Display', serif;">Recommended Items</h2>
+    <div class="row">
+        {% for item in items %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0" style="border-radius: 20px;">
+                <img src="{{ item.image_url or 'https://images.unsplash.com/photo-1515442261904-6c301f11078a' }}" 
+                     class="card-img-top" alt="{{ item.name }}" style="border-radius: 20px 20px 0 0; height: 250px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                    <p class="text-success fw-bold">{{ item.price }} ฿</p>
+                    <a href="{{ url_for('item_detail', item_id=item.id) }}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">View Detail</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12 text-center py-5">
+            <p class="text-muted italic">"กำลังเตรียมวัตถุดิบ... โปรดรอสักครู่"</p>
+            <a href="/admin/add" class="btn btn-sm btn-outline-success">ไปหน้าเพิ่มเมนู (สำหรับ Admin)</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

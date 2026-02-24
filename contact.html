@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-md-6">
+            <h2 style="color: #718355; font-family: 'Playfair Display', serif;">Visit Our Café</h2>
+            <p class="text-muted">สัมผัสบรรยากาศความเงียบสงบและกลิ่นชาเขียวมัทฉะได้ที่นี่</p>
+            <p><strong>ที่ตั้ง:</strong> 123 Matcha Street, Songkhla, Thailand</p>
+            <p><strong>เวลาเปิด-ปิด:</strong> 09:00 - 18:00 (เปิดทุกวัน)</p>
+            <p><strong>โทร:</strong> 088-xxx-xxxx</p>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-0" style="border-radius: 25px; background-color: #f1f3ec;">
+                <form>
+                    <input type="text" class="form-control mb-3" placeholder="ชื่อของคุณ" style="border-radius: 10px;">
+                    <textarea class="form-control mb-3" placeholder="ข้อความถึงเรา" rows="4" style="border-radius: 10px;"></textarea>
+                    <button class="btn w-100" style="background-color: #718355; color: white; border-radius: 10px;">ส่งข้อความ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

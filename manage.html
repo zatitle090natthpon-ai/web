@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: #718355;">Menu Management</h2>
+        <a href="{{ url_for('add_item') }}" class="btn btn-success rounded-pill px-4">+ Add New Menu</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="table-responsive shadow-sm" style="border-radius: 20px; overflow: hidden;">
+        <table class="table table-hover bg-white mb-0">
+            <thead style="background-color: #f1f3ec;">
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td class="align-middle fw-bold">{{ item.name }}</td>
+                    <td class="align-middle">{{ item.category }}</td>
+                    <td class="align-middle">{{ item.price }} ฿</td>
+                    <td class="align-middle">
+                        <a href="{{ url_for('delete_item', item_id=item.id) }}" 
+                           class="btn btn-sm btn-outline-danger" 
+                           onclick="return confirm('คุณแน่ใจหรือไม่ที่จะลบเมนูนี้?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

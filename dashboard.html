@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4" style="color: #718355;">📊 Dashboard</h2>
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="row g-3">
+                <div class="col-6"><div class="card p-3 shadow-sm border-0"><h6>ทั้งหมด</h6><h3>{{ total }}</h3></div></div>
+                <div class="col-6"><div class="card p-3 shadow-sm border-0"><h6>Tea</h6><h3>{{ tea }}</h3></div></div>
+            </div>
+            <div class="card mt-3 p-3 shadow-sm border-0">
+                <h5>เมนูล่าสุด</h5>
+                {% for item in recent %}<p class="mb-1 text-muted border-bottom">{{ item.name }}</p>{% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-0">
+                <canvas id="menuChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    new Chart(document.getElementById('menuChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Coffee', 'Tea', 'Bakery'],
+            datasets: [{ data: [{{coffee}}, {{tea}}, {{bakery}}], backgroundColor: ['#b5c99a', '#8fb339', '#f7e1ad'] }]
+        }
+    });
+</script>
+{% endblock %}

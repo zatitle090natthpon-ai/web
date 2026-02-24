@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 card p-4 shadow-sm border-0" style="border-radius: 20px; background-color: #f1f3ec;">
+            <h2 class="text-center mb-4" style="color: #718355; font-family: 'Playfair Display', serif;">Add New Menu</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Menu Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Matcha Latte" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select name="category" class="form-control">
+                        <option value="Coffee">Coffee</option>
+                        <option value="Tea">Tea</option>
+                        <option value="Bakery">Bakery</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Price (฿)</label>
+                    <input type="number" name="price" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Image URL</label>
+                    <input type="text" name="image_url" class="form-control" placeholder="https://images.unsplash.com/...">
+                </div>
+                <button type="submit" class="btn w-100 mt-3" style="background-color: #718355; color: white; border-radius: 10px;">Save Menu</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

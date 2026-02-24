@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm" style="border-radius: 30px; overflow: hidden;">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="{{ item.image_url or 'https://via.placeholder.com/400x500' }}" 
+                             class="img-fluid h-100" alt="{{ item.name }}" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/menu" class="text-decoration-none text-success">Menu</a></li>
+                                <li class="breadcrumb-item active">{{ item.category }}</li>
+                            </ol>
+                        </nav>
+                        <h1 class="display-5 fw-bold" style="color: #718355;">{{ item.name }}</h1>
+                        <h3 class="text-muted mb-4">{{ item.price }} ฿</h3>
+                        <p class="text-secondary lead">{{ item.description or 'สัมผัสรสชาติอันเป็นเอกลักษณ์จากวัตถุดิบคุณภาพที่เราคัดสรรมาเพื่อคุณโดยเฉพาะ' }}</p>
+                        
+                        <div class="mt-4">
+                            <a href="/menu" class="btn btn-outline-secondary rounded-pill px-4">ย้อนกลับ</a>
+                            <button class="btn btn-success rounded-pill px-4 ms-2">สั่งเมนูนี้</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

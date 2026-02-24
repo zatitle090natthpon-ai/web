@@ -1,0 +1,79 @@
+/* 1. Global Styles & Google Font (Commit: "style: add Google Fonts and global reset") */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --matcha-green: #718355;      /* เขียวชาเขียว */
+    --light-matcha: #b4d189;      /* เขียวอ่อน */
+    --cream-white: #fcfaf1;       /* ขาวครีม */
+    --dark-text: #333d29;         /* เขียวเข้มเกือบดำสำหรับตัวหนังสือ */
+}
+
+body {
+    background-color: var(--cream-white);
+    color: var(--dark-text);
+    font-family: 'Kanit', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* 2. Navbar Styling (Commit: "style: design matcha-themed navbar") */
+.navbar {
+    background-color: rgba(252, 250, 241, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(113, 131, 85, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--matcha-green) !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--light-matcha) !important;
+    transform: translateY(-2px);
+}
+
+/* 3. Card & Image Styling (Commit: "style: add aesthetic cards and hover effects") */
+.card {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(113, 131, 85, 0.15);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* 4. Button Styling (Commit: "style: custom matcha buttons") */
+.btn-primary {
+    background-color: var(--matcha-green);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--light-matcha);
+    transform: scale(1.05);
+}
+
+/* 5. Footer (Commit: "style: add minimalist footer") */
+footer {
+    padding: 50px 0;
+    background-color: #f7ffe1;
+    border-top: 1px solid rgba(113, 131, 85, 0.05);
+}
